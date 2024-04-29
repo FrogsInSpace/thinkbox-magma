@@ -359,7 +359,11 @@ void magma_input_geometry_node::get_property( std::size_t index, const frantic::
 
     if( is_int( result ) ) {
         outValue = result->to_int();
+#if MAX_RELEASE_R27
+    } else if( Number::is_number( result ) ) {
+#else
     } else if( is_number( result ) ) {
+#endif
         outValue = result->to_float();
     } else if( is_bool( result ) ) {
         outValue = result->to_bool();

@@ -1,3 +1,2 @@
-/MagmaCore/build
-/MagmaMY/build
-/MagmaMX/build
+build/
+vcproject/

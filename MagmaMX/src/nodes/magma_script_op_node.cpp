@@ -76,7 +76,11 @@ void magma_script_op_node::compile_as_extension_type( frantic::magma::magma_comp
         compiler.compile_constant( get_id(), variant_t( val->to_bool() ) );
     } else if( is_integer( val ) ) {
         compiler.compile_constant( get_id(), variant_t( val->to_int() ) );
+#if MAX_RELEASE_R27
+    } else if( Number::is_number( val ) ) {
+#else
     } else if( is_number( val ) ) {
+#endif
         compiler.compile_constant( get_id(), variant_t( val->to_float() ) );
     } else if( is_point3( val ) ) {
         compiler.compile_constant( get_id(), variant_t( frantic::max3d::from_max_t( val->to_point3() ) ) );

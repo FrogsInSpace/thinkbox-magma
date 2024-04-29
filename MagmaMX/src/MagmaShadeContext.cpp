@@ -318,6 +318,33 @@ Point3 MagmaShadeContext::VectorFromNoScale( const Point3& p, RefFrame ifrom ) {
         return p;
     }
 }
+
+#if MAX_RELEASE_R26
+Matrix3 MagmaShadeContext::MatrixTo( RefFrame ito ) {
+    switch( ito ) {
+    case REF_WORLD:
+        return m_toWorld;
+    case REF_OBJECT:
+        return m_toObject;
+    default:
+    case REF_CAMERA:
+        return Matrix3();
+    }
+}
+
+Matrix3 MagmaShadeContext::MatrixFrom( RefFrame ifrom ) {
+    switch( ifrom ) {
+    case REF_WORLD:
+        return m_fromWorld;
+    case REF_OBJECT:
+        return m_fromObject;
+    default:
+    case REF_CAMERA:
+        return Matrix3();
+    }
+}
+#endif
+
 #pragma warning( pop )
 
 } // namespace max3d

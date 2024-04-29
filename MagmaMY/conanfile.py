@@ -29,7 +29,7 @@ TOOL_REQUIRES: list[str] = [
 ]
 
 REQUIRES: list[str] = [
-    'thinkboxlibrary/1.0.0',
+    'thinkboxlibrary/1.0.1',
     'thinkboxmylibrary/1.0.0',
     'magma/1.0.0',
     'nodeview/1.0.0',

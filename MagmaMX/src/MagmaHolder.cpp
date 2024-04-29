@@ -110,7 +110,11 @@ class MagmaHolderPBAccessor : public PBAccessor {
 
             return result;
         }
+#if MAX_RELEASE_R24
+        return PBAccessor::GetLocalName( owner, id, tabIndex, false );
+#else
         return PBAccessor::GetLocalName( owner, id, tabIndex );
+#endif
     }
 
     static MagmaHolderPBAccessor* GetInstance() {

@@ -144,6 +144,13 @@ class MagmaShadeContext : public ShadeContext {
     virtual Point3 VectorToNoScale( const Point3& p, RefFrame ito );
 
     virtual Point3 VectorFromNoScale( const Point3& p, RefFrame ifrom );
+
+#if MAX_RELEASE_R26
+    virtual Matrix3 MatrixTo( RefFrame ito );   
+    virtual Matrix3 MatrixFrom( RefFrame ifrom );
+#endif
+
+
 #pragma warning( pop )
 
   public:
